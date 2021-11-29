@@ -1,0 +1,13 @@
+// abstracts imports
+@import "./abstracts/variables";
+@import "./abstracts/typography";
+@import "./abstracts/base";
+@import "./abstracts/mixins";
+@import "./abstracts/helpers";
+
+
+// components imports
+@import "./components/header";
+@import "./components/container";
+@import "./components/cart";
+@import "./components/featuredProduct";
