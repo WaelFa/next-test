@@ -1,0 +1,49 @@
+.product-card {
+  width: fit-content;
+  .pc-cover {
+    position: relative;
+    p {
+      position: absolute;
+      top: 5px;
+      left: 20px;
+      z-index: 1;
+      font-size: 20px;
+      font-weight: 400;
+    }
+    .pc-button {
+      color: $color-white;
+      background-color: $color-black;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 23px;
+      text-align: center;
+      padding: 10px 0px;
+    }
+  }
+  .pc-body {
+    span {
+      font-size: 22px;
+      line-height: 24px;
+      font-weight: 700;
+      color: $color-darkGray;
+      display: block;
+      margin: 8px 0px 2px;
+    }
+    h3 {
+      font-size: 34px;
+      line-height: 37px;
+      color: $color-black;
+      font-weight: 700;
+      margin: 0;
+    }
+    p {
+      color: $color-darkGray;
+      font-weight: 400;
+      margin: 6px 0px;
+    }
+  }
+}
