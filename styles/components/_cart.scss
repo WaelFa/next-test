@@ -2,6 +2,7 @@
   button {
     outline: none;
     border: none;
+    cursor: pointer;
 
     .cart-counter {
       font-weight: 700;
@@ -14,7 +15,6 @@
       position: relative;
       top: -10px;
       left: 45px;
-      
     }
   }
 }

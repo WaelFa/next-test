@@ -24,4 +24,47 @@
       }
     }
   }
+  .fp-bottom {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    h2 {
+      color: $color-black;
+      font-weight: 700;
+      font-size: 22px;
+    }
+    p {
+      color: $color-darkGray;
+      font-size: 18px;
+      line-height: 27px;
+      font-weight: 400;
+    }
+    .fpb-description {
+      max-width: 690px;
+      span {
+        color: $color-darkGray;
+        font-weight: 700;
+        font-size: 22px;
+        display: block;
+      }
+    }
+    .fpb-relatedProducts {
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+      .fpb-recommendedProducts {
+        img {
+          display: block;
+          margin-left: 30px !important;
+          cursor: pointer;
+        }
+      }
+      .pfb-details {
+        p {
+          font-size: 18px;
+          margin: 0px;
+        }
+      }
+    }
+  }
 }
