@@ -2,6 +2,7 @@
   width: fit-content;
   .pc-cover {
     position: relative;
+    cursor: pointer;
     p {
       position: absolute;
       top: 5px;
@@ -12,6 +13,7 @@
     }
     .pc-button {
       color: $color-white;
+      display: none;
       background-color: $color-black;
       width: 100%;
       position: absolute;
@@ -22,6 +24,11 @@
       font-size: 23px;
       text-align: center;
       padding: 10px 0px;
+    }
+    &:hover{
+      .pc-button{
+        display: block;
+      }
     }
   }
   .pc-body {
@@ -43,7 +50,7 @@
     p {
       color: $color-darkGray;
       font-weight: 400;
-      margin: 6px 0px;
+      margin: 8px 0px 0px;
     }
   }
 }
