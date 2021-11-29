@@ -9,7 +9,7 @@ function ProductCard() {
   return (
     <div className="product-card">
       <div className="pc-cover">
-        {isBestSeller && <p>best seller</p>}
+        {isBestSeller && <p>Best Seller</p>}
         <Image src={cardImage} alt="product image" />
         <div className="pc-button">Add to cart</div>
       </div>

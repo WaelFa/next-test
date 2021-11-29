@@ -7,7 +7,12 @@ import Container from "../components/Container";
 import FeaturedProduct from "../components/FeaturedProduct";
 import ProductsList from "../components/ProductsList";
 
+
+// mock data imports
+import {products} from '../data/products.js'
+
 export default function Home() {
+  console.log(products)
   return (
     <div>
       <Head>

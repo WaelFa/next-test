@@ -4,9 +4,12 @@
     position: relative;
     cursor: pointer;
     p {
+    
       position: absolute;
-      top: 5px;
-      left: 20px;
+      top: 0px;
+      left: 0px;
+      background-color: $color-white;
+      padding: 10px 20px;
       z-index: 1;
       font-size: 20px;
       font-weight: 400;

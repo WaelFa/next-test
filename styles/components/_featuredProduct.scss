@@ -7,7 +7,7 @@
     h1 {
       color: $color-black;
       font-weight: 700;
-      font-size: Size 32px;
+      font-size: 32px;
       margin: 0px 0px 30px;
     }
     .fp-image-container {
@@ -32,6 +32,7 @@
     margin-top: 40px;
     display: flex;
     justify-content: space-between;
+    flex: wrap;
     h2 {
       color: $color-black;
       font-weight: 700;
