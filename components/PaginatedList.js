@@ -17,7 +17,6 @@ function PaginatedList({ products }) {
   const pageCount = Math.ceil(products.length / userPerPage);
 
   const changePage = ({ selected }) => {
-    console.log(selected);
     setPageNumber(selected);
   };
 
@@ -25,7 +24,7 @@ function PaginatedList({ products }) {
     <div className="paginated-list">
       <Row>
         {displayProducts.map((product, i) => (
-          <Col key={"key" + i} xs={12} md={6} lg={4}>
+          <Col key={"key" + i} xs={12} md={6} lg={6} xl={4}>
             <ProductCard product={product} />
           </Col>
         ))}

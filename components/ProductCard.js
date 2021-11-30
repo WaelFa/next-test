@@ -16,7 +16,6 @@ function ProductCard({ product }) {
   };
 
   const addProductToCart = () => {
-    console.log(products, "hello");
     setProducts(
       products.find((prod) => prod.id === product.id)
         ? products

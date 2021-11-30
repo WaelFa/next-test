@@ -1,3 +1,46 @@
 .products-list {
-    padding: 20px 0;
+  padding: 20px 0;
+  .pl-header {
+    h1 {
+      font-size: 18px;
+      line-height: 20px;
+      font-weight: 700;
+      color: $color-black;
+      @include breakpoint(tablet-lg) {
+        font-size: 30px;
+        line-height: 33px;
+      }
+      span {
+        font-weight: 400;
+        color: $color-mediumGray;
+      }
+    }
+    .products-sorting {
+      p {
+        font-size: 22px;
+        line-height: 24px;
+        color: $color-mediumGray;
+        span {
+          position: relative;
+          left: -2px;
+          cursor: pointer;
+        }
+      }
+      .sorting-dropdown {
+        .btn {
+          background: none;
+          border: none;
+          outline: none;
+          color: $color-black;
+          font-size: 22px;
+          line-height: 24px;
+          position: relative;
+          top: -6px;
+          &:focus{
+              box-shadow: none;
+          }
+        }
+      }
+    }
+  }
 }

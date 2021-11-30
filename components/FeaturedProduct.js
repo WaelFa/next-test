@@ -8,7 +8,7 @@ import recommended2 from "../assets/recommended2.png";
 import recommended3 from "../assets/recommended3.png";
 
 function FeaturedProduct({ featuredProduct }) {
-  console.log("++", featuredProduct);
+
   return (
     <div className="featured-product">
       <div className="fp-top">
