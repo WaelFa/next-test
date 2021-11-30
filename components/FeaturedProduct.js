@@ -5,6 +5,27 @@ import { Row, Col } from "react-bootstrap";
 // context import
 import { useAppContext } from "../context/state";
 
+//image imports
+import recommended1 from "../assets/recommended1.png";
+import recommended2 from "../assets/recommended2.png";
+import recommended3 from "../assets/recommended3.png";
+
+// recommended images list
+const recommendations = [
+  {
+    src: recommended1,
+    alt: "recommended product 1",
+  },
+  {
+    src: recommended2,
+    alt: "recommended product 1",
+  },
+  {
+    src: recommended3,
+    alt: "recommended product 1",
+  },
+];
+
 function FeaturedProduct({ featuredProduct }) {
   const { setProducts, products, setShowCartContent } = useAppContext();
 
@@ -33,10 +54,10 @@ function FeaturedProduct({ featuredProduct }) {
 
         <div className="fp-image-container">
           <Image
-            src={featuredProduct.image.src}
+            src={featuredProduct.image.url}
             alt="featured product"
-            height={featuredProduct.image.height}
-            width={featuredProduct.image.width}
+            width={1290}
+            height={650}
           />
           <span className="fp-label">Photo of the day</span>
         </div>
@@ -50,12 +71,12 @@ function FeaturedProduct({ featuredProduct }) {
         <Col className="fpb-description" lg={6} xs={12}>
           <h2>{featuredProduct.name}</h2>
           <span>{featuredProduct.category}</span>
-          <p>{featuredProduct.details.description}</p>
+          <p>{featuredProduct.description}</p>
         </Col>
         <Col className="fpb-relatedProducts" lg={6} xs={12}>
           <h2>People also buy</h2>
           <div className="fpb-recommendedProducts">
-            {featuredProduct.details.recommendations.map((el, id) => (
+            {recommendations.map((el, id) => (
               <Image
                 className="ml-lg-0 mr-lg-3 ml-3 mr-0"
                 key={"key" + id}

@@ -84,7 +84,10 @@ function ProductsList({ products }) {
           </Dropdown>
 
           {/* the following components will only show up on small screens */}
-          <button onClick={handleShow} className="filters-button">
+          <button
+            onClick={handleShow}
+            className="filters-button d-block d-lg-none"
+          >
             <Image src={filtersIcon} alt="filters" />
           </button>
           <Offcanvas

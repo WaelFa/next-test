@@ -29,7 +29,12 @@ function ProductCard({ product }) {
     <div className="product-card mx-auto mb-5">
       <div className="pc-cover">
         {product.bestseller && <p>Best Seller</p>}
-        <Image src={product.image} alt="product image" />
+        <Image
+          src={product.image.url}
+          alt="product image"
+          width={280}
+          height={400}
+        />
         <div className="pc-button" onClick={addProductToCart}>
           Add to cart
         </div>

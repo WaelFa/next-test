@@ -8,6 +8,7 @@
       color: $color-black;
       font-weight: 700;
       font-size: 32px;
+      text-transform: capitalize;
     }
     .fp-button {
       color: $color-white;
@@ -47,12 +48,14 @@
       color: $color-black;
       font-weight: 700;
       font-size: 22px;
+      text-transform: capitalize;
     }
     p {
       color: $color-darkGray;
       font-size: 18px;
       line-height: 27px;
       font-weight: 400;
+      text-transform: capitalize;
     }
     .fpb-description {
       max-width: 690px;
@@ -61,6 +64,7 @@
         font-weight: 700;
         font-size: 22px;
         display: block;
+        text-transform: capitalize;
       }
     }
     .fpb-relatedProducts {

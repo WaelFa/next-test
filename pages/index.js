@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
+import { GraphQLClient } from "graphql-request";
 
 // components imports
 import Header from "../components/Header";
@@ -8,12 +8,38 @@ import FeaturedProduct from "../components/FeaturedProduct";
 import ProductsList from "../components/ProductsList";
 
 // mock data imports
-import { products } from "../data/products.js";
+// import { products } from "../data/products.js";
 
-export default function Home() {
+export async function getStaticProps() {
+  const graphcms = new GraphQLClient(
+    "https://api-eu-central-1.graphcms.com/v2/ckwla902p1c1n01zdgf081z0r/master"
+  );
+  const { products } = await graphcms.request(`
+  {
+    products {
+      id
+      name
+      category
+      price
+      currency
+      featured
+      bestseller
+      description
+      details
+      image {
+        url
+      }
+    }
+  }`);
+
+  return {
+    props: { products },
+  };
+}
+
+export default function Home({ products }) {
   const featuredProduct = products.find((product) => product.featured);
   const nonFeaturedProducts = products.filter((product) => !product.featured);
-
   return (
     <div>
       <Head>

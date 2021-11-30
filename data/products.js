@@ -1,8 +1,6 @@
 import cardImage from "../assets/cardImage.png";
 import featuredImage from "../assets/dog.png";
-import recommended1 from "../assets/recommended1.png";
-import recommended2 from "../assets/recommended2.png";
-import recommended3 from "../assets/recommended3.png";
+
 
 export const products = [
   {

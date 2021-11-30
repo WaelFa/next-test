@@ -41,7 +41,7 @@ function Cart() {
                 </div>
                 <div className="cp-right">
                   <Image
-                    src={product.image}
+                    src={product.image.url}
                     alt={product.name}
                     layout="fill"
                     objectFit="contain"
