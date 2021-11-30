@@ -8,7 +8,17 @@
       color: $color-black;
       font-weight: 700;
       font-size: 32px;
-      margin: 0px 0px 30px;
+    }
+    .fp-button {
+      color: $color-white;
+      background-color: $color-black;
+      border: none;
+      width: 257px;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 23px;
+      text-align: center;
+      padding: 10px 0px;
     }
     .fp-image-container {
       position: relative;
@@ -56,12 +66,19 @@
     .fpb-relatedProducts {
       display: flex;
       flex-direction: column;
-      text-align: right;
+      text-align: left;
+      @include breakpoint(tablet-lg) {
+        text-align: right;
+      }
       .fpb-recommendedProducts {
         img {
           display: block;
-          margin-left: 30px !important;
+          margin-right: 30px !important;
           cursor: pointer;
+          @include breakpoint(tablet-lg) {
+            margin-left: 30px !important;
+            margin-right: 0px !important;
+          }
         }
       }
       .pfb-details {

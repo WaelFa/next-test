@@ -1,18 +1,36 @@
 import React from "react";
 import Image from "next/image";
+import { Row, Col } from "react-bootstrap";
 
-// images imports
-import dog from "../assets/dog.png";
-import recommended1 from "../assets/recommended1.png";
-import recommended2 from "../assets/recommended2.png";
-import recommended3 from "../assets/recommended3.png";
+// context import
+import { useAppContext } from "../context/state";
 
 function FeaturedProduct({ featuredProduct }) {
+  const { setProducts, products, setShowCartContent } = useAppContext();
+
+  const addProductToCart = () => {
+    setProducts(
+      products.find((prod) => prod.id === featuredProduct.id)
+        ? products
+        : [...products, featuredProduct]
+    );
+    setShowCartContent(true);
+  };
 
   return (
     <div className="featured-product">
       <div className="fp-top">
-        <h1>Samurai King Resting</h1>
+        <Row className="mb-4">
+          <Col sm={12} md={6}>
+            <h1>Samurai King Resting</h1>
+          </Col>
+          <Col md={6} className="d-none d-md-flex justify-content-end">
+            <button className="fp-button" onClick={addProductToCart}>
+              ADD TO CART
+            </button>
+          </Col>
+        </Row>
+
         <div className="fp-image-container">
           <Image
             src={featuredProduct.image.src}
@@ -22,18 +40,28 @@ function FeaturedProduct({ featuredProduct }) {
           />
           <span className="fp-label">Photo of the day</span>
         </div>
+        <Row className="d-md-none d-block mx-0 mt-3">
+          <button className="fp-button w-100" onClick={addProductToCart}>
+            ADD TO CART
+          </button>
+        </Row>
       </div>
-      <div className="fp-bottom">
-        <div className="fpb-description">
+      <Row className="fp-bottom mx-auto">
+        <Col className="fpb-description" lg={6} xs={12}>
           <h2>{featuredProduct.name}</h2>
           <span>{featuredProduct.category}</span>
           <p>{featuredProduct.details.description}</p>
-        </div>
-        <div className="fpb-relatedProducts">
+        </Col>
+        <Col className="fpb-relatedProducts" lg={6} xs={12}>
           <h2>People also buy</h2>
           <div className="fpb-recommendedProducts">
             {featuredProduct.details.recommendations.map((el, id) => (
-              <Image key={"key" + id} src={el.src} alt={el.alt} />
+              <Image
+                className="ml-lg-0 mr-lg-3 ml-3 mr-0"
+                key={"key" + id}
+                src={el.src}
+                alt={el.alt}
+              />
             ))}
           </div>
           <div className="pfb-details">
@@ -44,8 +72,8 @@ function FeaturedProduct({ featuredProduct }) {
             </p>
             <p>Size: {featuredProduct.details.size} mb</p>
           </div>
-        </div>
-      </div>
+        </Col>
+      </Row>
     </div>
   );
 }

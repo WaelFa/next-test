@@ -26,7 +26,7 @@ function ProductCard({ product }) {
   };
 
   return (
-    <div className="product-card mx-auto">
+    <div className="product-card mx-auto mb-5">
       <div className="pc-cover">
         {product.bestseller && <p>Best Seller</p>}
         <Image src={product.image} alt="product image" />

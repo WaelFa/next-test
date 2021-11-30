@@ -55,6 +55,7 @@
         height: 86px;
         position: relative;
         .cp-left {
+          max-width: 60%;
           h3 {
             color: $color-black;
             font-size: 20px;
@@ -70,6 +71,12 @@
         }
         .cp-right {
           max-height: 86px;
+          max-width: 40%;
+          img {
+            max-width: 40% !important;
+            min-width: 40% !important;
+            margin: 0px 0px 0px auto !important;
+          }
         }
       }
     }
