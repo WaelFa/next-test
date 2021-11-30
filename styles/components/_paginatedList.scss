@@ -1,0 +1,32 @@
+.paginated-list {
+  .prevBtn {
+    background: transparent url(../../assets/caretLeft.svg);
+    color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .nextBtn {
+    background: url(../../assets/caretRight.svg);
+    color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .hideBtn {
+    background: none;
+    color: transparent;
+  }
+
+  .pagination {
+    margin: 30px 0px;
+    justify-content: center;
+    li {
+      font-weight: 600;
+      font-size: 29px;
+      color: $color-lightGray;
+      margin: 0 15px;
+    }
+    .selected {
+      color: $color-black;
+    }
+  }
+}

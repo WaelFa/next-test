@@ -1,12 +1,13 @@
 import React from "react";
 
 // components imports
+import PaginatedList from "./PaginatedList";
 import ProductCard from "./ProductCard";
 
 function ProductsList() {
   return (
     <div className="products-list">
-      <ProductCard />
+      <PaginatedList />
     </div>
   );
 }
