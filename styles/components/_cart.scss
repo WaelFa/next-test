@@ -22,7 +22,7 @@
     }
   }
   .toast {
-    width: 443px;
+    width: min(90vw, 443px);
     right: 0;
     top: 106px;
     position: absolute;
@@ -52,6 +52,8 @@
         display: flex;
         justify-content: space-between;
         margin: 12px 0px;
+        height: 86px;
+        position: relative;
         .cp-left {
           h3 {
             color: $color-black;

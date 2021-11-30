@@ -4,11 +4,7 @@ import ReactPaginate from "react-paginate";
 //components imports
 import ProductCard from "./ProductCard";
 
-const products = [
-  0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-];
-
-function PaginatedList() {
+function PaginatedList({ products }) {
   const [pageNumber, setPageNumber] = useState(0);
   const userPerPage = 6;
   const pageVisited = pageNumber * userPerPage;
@@ -21,16 +17,16 @@ function PaginatedList() {
   const pageCount = Math.ceil(products.length / userPerPage);
 
   const changePage = ({ selected }) => {
-    console.log(selected)
+    console.log(selected);
     setPageNumber(selected);
   };
 
   return (
     <div className="paginated-list">
       <Row>
-        {displayProducts.map((i) => (
-          <Col key={i}>
-            <ProductCard />
+        {displayProducts.map((product, i) => (
+          <Col key={"key" + i} xs={12} md={6} lg={4}>
+            <ProductCard product={product} />
           </Col>
         ))}
       </Row>
@@ -41,7 +37,7 @@ function PaginatedList() {
         onPageChange={changePage}
         containerClassName={"pagination"}
         previousLinkClassName={pageNumber === 0 ? "hideBtn" : "prevBtn"}
-        nextLinkClassName={pageNumber === pageCount-1 ? "hideBtn" : "nextBtn"}
+        nextLinkClassName={pageNumber === pageCount - 1 ? "hideBtn" : "nextBtn"}
       />
     </div>
   );

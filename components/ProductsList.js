@@ -4,10 +4,10 @@ import React from "react";
 import PaginatedList from "./PaginatedList";
 import ProductCard from "./ProductCard";
 
-function ProductsList() {
+function ProductsList({ products }) {
   return (
     <div className="products-list">
-      <PaginatedList />
+      <PaginatedList products={products} />
     </div>
   );
 }

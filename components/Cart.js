@@ -1,41 +1,62 @@
-import React, { useState } from 'react'
-import Image from "next/image"
-import { Toast } from 'react-bootstrap';
+import React from "react";
+import Image from "next/image";
+import { Toast } from "react-bootstrap";
 
+//context import
+import { useAppContext } from "../context/state";
 
 // image imports
 import CartImage from "../assets/cart.svg";
 
 function Cart() {
-    const [showCartContent, setShowCartContent] = useState(false);
-    const toggleShowCartContent = () => setShowCartContent(!showCartContent);
-    return (
-        <div className="cart">
-            <button onClick={toggleShowCartContent}>
-                <Image src={CartImage} alt="cart" width={54} height={54} />
-                <span className="cart-counter">1</span>
-            </button>
+  const { setProducts, products, showCartContent, setShowCartContent } =
+    useAppContext();
 
-            <Toast show={showCartContent} onClose={toggleShowCartContent}>
-                <Toast.Header></Toast.Header>
-                <Toast.Body>
-                    <div className="cart-products">
-                        <div className="cart-product">
-                            <div className="cp-left">
-                                <h3>Samurai King Resting</h3>
-                                <span>$10000.00</span>
-                            </div>
-                            <div className="cp-right">
-                                <Image src={CartImage} />
-                            </div>
-                        </div>
-                    </div>
-                    <button onClick={() => console.log('clear')} className="cart-clear">Clear</button>
-                </Toast.Body>
-            </Toast>
+  const toggleShowCartContent = () => setShowCartContent(!showCartContent);
 
-        </div>
-    )
+  const clearCart = () => {
+    setProducts([]);
+  };
+  return (
+    <div className="cart">
+      <button onClick={toggleShowCartContent}>
+        <Image src={CartImage} alt="cart" width={54} height={54} />
+        {products.length !== 0 && (
+          <span className="cart-counter">{products.length}</span>
+        )}
+      </button>
+
+      <Toast show={showCartContent} onClose={toggleShowCartContent}>
+        <Toast.Header></Toast.Header>
+        <Toast.Body>
+          <div className="cart-products">
+            {products.map((product) => (
+              <div className="cart-product" key={product.id}>
+                <div className="cp-left">
+                  <h3>{product.name}</h3>
+                  <span>
+                    {product.currency}
+                    {product.price}
+                  </span>
+                </div>
+                <div className="cp-right">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+          <button onClick={clearCart} className="cart-clear">
+            Clear
+          </button>
+        </Toast.Body>
+      </Toast>
+    </div>
+  );
 }
 
-export default Cart
+export default Cart;

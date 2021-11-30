@@ -7,12 +7,13 @@ import Container from "../components/Container";
 import FeaturedProduct from "../components/FeaturedProduct";
 import ProductsList from "../components/ProductsList";
 
-
 // mock data imports
-import {products} from '../data/products.js'
+import { products } from "../data/products.js";
 
 export default function Home() {
-  console.log(products)
+  const featuredProduct = products.find((product) => product.featured);
+  const nonFeaturedProducts = products.filter((product) => !product.featured);
+
   return (
     <div>
       <Head>
@@ -23,8 +24,8 @@ export default function Home() {
       <Header />
       <main>
         <Container>
-          <FeaturedProduct />
-          <ProductsList />
+          <FeaturedProduct featuredProduct={featuredProduct} />
+          <ProductsList products={nonFeaturedProducts} />
         </Container>
       </main>
     </div>

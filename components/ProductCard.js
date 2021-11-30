@@ -1,22 +1,47 @@
 import React from "react";
 import Image from "next/image";
 
-// image import
-import cardImage from "../assets/cardImage.png";
+//context import
+import { useAppContext } from "../context/state";
 
-function ProductCard() {
-  const isBestSeller = true;
+function ProductCard({ product }) {
+  const { setProducts, products, setShowCartContent } = useAppContext();
+
+  // scroll to the top of the screen when a new product is added
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const addProductToCart = () => {
+    console.log(products, "hello");
+    setProducts(
+      products.find((prod) => prod.id === product.id)
+        ? products
+        : [...products, product]
+    );
+    scrollToTop();
+    setShowCartContent(true);
+  };
+
   return (
-    <div className="product-card">
+    <div className="product-card mx-auto">
       <div className="pc-cover">
-        {isBestSeller && <p>Best Seller</p>}
-        <Image src={cardImage} alt="product image" />
-        <div className="pc-button">Add to cart</div>
+        {product.bestseller && <p>Best Seller</p>}
+        <Image src={product.image} alt="product image" />
+        <div className="pc-button" onClick={addProductToCart}>
+          Add to cart
+        </div>
       </div>
       <div className="pc-body">
-        <span>Food</span>
-        <h3>Egg Balloon</h3>
-        <p>$93.89</p>
+        <span>{product.category}</span>
+        <h3>{product.name}</h3>
+        <p>
+          {product.currency}
+          {product.price}
+        </p>
       </div>
     </div>
   );
