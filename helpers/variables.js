@@ -16,3 +16,8 @@ export const priceRangeFilter = [
   "$100 - $200",
   "More than $200",
 ];
+
+export const initialFiltersState = {
+  category: [],
+  price: "",
+};

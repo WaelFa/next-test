@@ -53,6 +53,59 @@
           }
         }
       }
+      .filters-button {
+        border: none;
+        outline: none;
+        background: $color-white;
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+// offcanvas styling
+.offcanvas {
+  width: 100vw;
+  .offcanvas-title {
+    font-size: 34px;
+    line-height: 37px;
+  }
+  .offcanvas-body {
+    overflow-y: scroll;
+    height: calc(100vh - 166px);
+    position: relative;
+  }
+  .buttons-group {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 104px;
+    border-top: 4px solid #e4e4e4;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    button {
+      position: relative;
+      font-size: 23px;
+      line-height: 25px;
+      text-align: center;
+      letter-spacing: 0.07em;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 8px 54px;
+    }
+    .save-button {
+      color: $color-white;
+      background: $color-black;
+      border: 3px solid $color-black;
+    }
+    .clear-button {
+      color: $color-black;
+      background: $color-white;
+      border: 3px solid $color-black;
     }
   }
 }
