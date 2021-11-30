@@ -4,6 +4,7 @@ import Image from "next/image";
 
 // components imports
 import PaginatedList from "./PaginatedList";
+import Filters from "./Filters";
 
 // image imports
 import sortingIcon from "../assets/sorting.svg";
@@ -12,11 +13,16 @@ import filtersIcon from "../assets/filters.svg";
 // helpers and variables imports
 import { ALPHABETICALLY, PRICE } from "../helpers/variables";
 import { sortProducts } from "../helpers/sort";
+import { filterProducts } from "../helpers/filter";
 
 function ProductsList({ products }) {
   const [sorting, setSorting] = useState({
     type: ALPHABETICALLY,
     isAscending: true,
+  });
+  const [filters, setFilters] = useState({
+    category: [],
+    price: "",
   });
 
   const toggleSortingType = () => {
@@ -30,8 +36,12 @@ function ProductsList({ products }) {
   const toggleSortingOrder = () => {
     setSorting({ ...sorting, isAscending: !sorting.isAscending });
   };
-  console.log(sorting);
-  console.log(sortProducts(products, sorting));
+
+  const filteredSortedProductsList = filterProducts(
+    sortProducts(products, sorting),
+    filters
+  );
+
   return (
     <div className="products-list">
       <Row className="pl-header mb-5">
@@ -62,10 +72,10 @@ function ProductsList({ products }) {
       </Row>
       <Row>
         <Col lg={3} xs={12}>
-          filters
+          <Filters filters={filters} setFilters={setFilters} />
         </Col>
         <Col lg={9} xs={12}>
-          <PaginatedList products={sortProducts(products, sorting)} />
+          <PaginatedList products={filteredSortedProductsList} />
         </Col>
       </Row>
     </div>

@@ -35,9 +35,21 @@
           font-size: 22px;
           line-height: 24px;
           position: relative;
-          top: -6px;
-          &:focus{
-              box-shadow: none;
+          top: -12px;
+          &:focus {
+            box-shadow: none;
+          }
+          &::after {
+            border: none;
+            background: url(../../assets/caretRight.svg);
+            color: transparent;
+            background-repeat: no-repeat;
+            background-position: center;
+            transform: rotate(90deg);
+            width: 20px;
+            height: 20px;
+            position: relative;
+            top: 10px;
           }
         }
       }

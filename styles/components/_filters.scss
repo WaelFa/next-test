@@ -1,0 +1,54 @@
+.filters {
+  h2 {
+    font-size: 22px;
+    line-height: 24px;
+    font-weight: 700;
+  }
+  .checkbox-group {
+    margin: 25px 0px;
+    label {
+      color: #1d1d1d;
+      font-size: 22px;
+      line-height: 24px;
+      font-weight: 400;
+      text-transform: uppercase;
+      margin-left: 20px;
+      margin-left: 40px;
+      position: relative;
+      top: -22px;
+    }
+    input[type="checkbox"] {
+      /* Add if not using autoprefixer */
+      -webkit-appearance: none;
+      appearance: none;
+      /* For iOS < 15 to remove gradient background */
+      background-color: #fff;
+      /* Not removed via appearance */
+      margin: 0;
+      font: inherit;
+      color: $color-black;
+      width: 1.15em;
+      height: 1.15em;
+      border: 0.15em solid $color-black;
+      border-radius: 0;
+      transform: translateY(-0.075em);
+      display: grid;
+      place-content: center;
+      &::before {
+        content: "";
+        width: 0.65em;
+        height: 0.65em;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 1em 1em $color-black;
+        transform-origin: bottom left;
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+      }
+    }
+    input[type="checkbox"]:checked {
+      &::before {
+        transform: scale(1);
+      }
+    }
+  }
+}

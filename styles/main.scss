@@ -5,7 +5,6 @@
 @import "./abstracts/mixins";
 @import "./abstracts/helpers";
 
-
 // components imports
 @import "./components/header";
 @import "./components/container";
@@ -13,4 +12,5 @@
 @import "./components/featuredProduct";
 @import "./components/productCard";
 @import "./components/productsList";
-@import "./components/paginatedList"
+@import "./components/paginatedList";
+@import "./components/filters";
